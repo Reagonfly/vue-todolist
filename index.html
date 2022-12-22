@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>VueToDo</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <h2>Vue To do List</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="list-unstyled">
+                        <li class="my-2" v-for="(item, index) in todolist">
+                            <div class="d-flex justify-content-between">
+                                <div v-if="!item.edit" :class="item.done ? 'didThat' : ''">
+                                    {{index +1 }} - {{ item.text }}
+                                </div>
+                                <div v-else>
+                                    {{index +1 }} - <input class="form-control" type="text" v-model="item.text">
+                                </div>
+                                <div>
+                                    <button v-if="!item.done" class="btn btn-sm btn-square btn-success" @click="checkedTask(index)"><i class="fa-sharp fa-solid fa-check"></i></button>
+                                    <button v-else="item.done" class="btn btn-sm btn-square btn-dark" @click="checkedTask(index)"><i class="fa-sharp fa-solid fa-check-double"></i></button>
+                                    <button class="btn btn-sm btn-square btn-primary mx-2" @click="editTask(index)"><i class="fas fa-solid fa-pen"></i></button>
+                                    <button class="btn btn-sm btn-square btn-danger" @click="removeTask(index)"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex w-100">
+                        <input class="form-control" placeholder="insert new task" v-model="newTask" type="text" @keyup.enter="addTask">
+                        <button class="btn btn-primary mx-2" @click="addTask">Inserisci</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</body>
+</html>

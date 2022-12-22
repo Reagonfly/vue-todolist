@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto';font-size: 22px;
+    width: 100vw;
+    height: 100vh;
+   /* background: linear-gradient(-45deg, rgb(212, 0, 255), rgb(0, 241, 0), rgb(8, 122, 253));
+    background-size: 400% 400%;
+    width: 100vw;
+    height: 100vh;
+    animation: animate 15s ease infinite;*/     /*fa male agli occhi dopo un po*/
+}
+
+.container{
+    margin: 3rem auto;
+    width: 50%;
+}
+
+.text-center h2{
+    font-weight: 600;
+}
+
+.didThat{
+    text-decoration: line-through;
+}
+/*non serve fino a quando non si riattiva il bg*/
+@keyframes animate{ 
+    0% {
+        background-position:0% 50%;
+    }
+    50% {
+        background-position:100% 50%;
+    }
+    100% {
+        background-position:0% 50%;
+    }
+}
